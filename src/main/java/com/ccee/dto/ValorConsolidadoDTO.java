@@ -14,6 +14,6 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 public class ValorConsolidadoDTO {
-	private BigDecimal valor;
 	private RegiaoEnum regiao;
+	private BigDecimal valor;
 }

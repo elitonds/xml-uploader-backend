@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 
 import com.ccee.dto.AgenteDTO;
 import com.ccee.dto.CompraGeracaoDTO;
+import com.ccee.dto.ValorConsolidadoDTO;
 import com.ccee.model.Agente;
 import com.ccee.model.Compra;
 import com.ccee.model.Geracao;
+import com.ccee.repositories.CustomConsolidatedValuesRepository;
 import com.ccee.repositories.IAgenteRepository;
 
 import lombok.extern.log4j.Log4j2;
@@ -19,9 +21,12 @@ import lombok.extern.log4j.Log4j2;
 public class AgenteService {
 
 	final IAgenteRepository agenteRepository;
+	final CustomConsolidatedValuesRepository consolidatedValuesRepository;
 
-	public AgenteService(IAgenteRepository agenteRepository) {
+	public AgenteService(IAgenteRepository agenteRepository,
+			CustomConsolidatedValuesRepository consolidatedValuesRepository) {
 		this.agenteRepository = agenteRepository;
+		this.consolidatedValuesRepository = consolidatedValuesRepository;
 	}
 
 	public void saveMany(List<AgenteDTO> agentesDto) {
@@ -54,5 +59,23 @@ public class AgenteService {
 			throw e;
 		}
 
+	}
+
+	public List<ValorConsolidadoDTO> findComprasConsolidadasPorRegiao() {
+		try {
+			return this.consolidatedValuesRepository.findComprasConsolidadasPorRegiao();
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw e;
+		}
+	}
+	
+	public List<ValorConsolidadoDTO> findGeracoesConsolidadasPorRegiao() {
+		try {
+			return this.consolidatedValuesRepository.findGeracoesConsolidadasPorRegiao();
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw e;
+		}
 	}
 }
