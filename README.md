@@ -4,6 +4,7 @@ Aplicação de persistêcia dos dados de arquivos xml (Teste CCEE)
 
 ## Pré-requisitos
 - Docker e Docker-compose
+- JDK 11
 
 ## Para iniciar a aplicação:
 - Clonar o projeto e importar para sua IDE
