@@ -15,4 +15,4 @@ Aplicação de persistêcia dos dados de arquivos xml (Teste CCEE)
 - Todos os endpoints estão listados no caminho http://localhost:8080/swagger-ui.html
 
 ## Testes Unitários 
-- Os testes unitários foram desenvolvidos na pasta *src/test/unit* e podem ser executados via Junit
+- Os testes unitários foram desenvolvidos na pasta *src/test/java/com/cee/unit* e podem ser executados via Junit
